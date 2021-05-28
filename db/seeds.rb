@@ -20,8 +20,8 @@ tester = JSON.parse(response)[:success]
 
 puts 'Adding Files to Database..'
 
-25.times do
-  next if tester
+30.times do
+  # next if tester
 
   title = JSON.parse(response)['title']
   overview = JSON.parse(response)['overview']

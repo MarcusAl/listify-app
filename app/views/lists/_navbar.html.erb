@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light p-2">
+  <%= link_to 'List Me', lists_path, class: 'navbar-brand'  %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to 'Home', lists_path, class: 'navbar-brand nav-link'  %><span class="sr-only">(Home)</span></a>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Create List', new_list_path, class: 'navbar-brand nav-link'  %><span class="sr-only">(Create List)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Your Lists
+        </a>
+        <div class="dropdown-menu mt-3" aria-labelledby="navbarDropdown">
+            <% @lists[0..7].each do |list| %>
+            <%= link_to list.name, list_path(list), class: 'dropdown-item'  %><span class="sr-only">(List Item)</span></a>
+            <div class="dropdown-divider"></div>
+            <% end %>
+        </div>
+      </li>
+    </ul>
+    <form class="d-flex my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search your lists..." aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 mx-3" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
