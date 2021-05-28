@@ -1,3 +1,4 @@
+# This class handles the user based crud actions for the Lists Object.
 class ListsController < ApplicationController
   def index
     @lists = List.all
@@ -19,9 +20,9 @@ class ListsController < ApplicationController
   def create
     @list = List.new(strong_params)
     if @list.save
-      redirect_to list_path(@list)
+      redirect_to list_path(@list), notice: 'List was successfully created'
     else
-      render :new
+      render :new, notice: 'List creation was unsuccessful'
     end
   end
 

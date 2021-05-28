@@ -1,3 +1,4 @@
+# This class handles the user based crud actions for the Bookmarks Object.
 class BookmarksController < ApplicationController
   def new
     @list = List.find(params[:list_id])
@@ -11,7 +12,7 @@ class BookmarksController < ApplicationController
     @bookmark.list = @list
     @bookmark.movie = @movie
     if @bookmark.save
-      redirect_to list_path(@list)
+      redirect_to list_path(@list), notice: 'Bookmark was successfully created'
     else
       render :new
     end
