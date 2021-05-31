@@ -1,10 +1,16 @@
-<h1>Bookmarks#new</h1>
-<p>Find me in app/views/bookmarks/new.html.erb</p>
+<%= render 'navbarPages' %>
 
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.button :submit %>
-<% end %>
+
+<div class="pg-container container mt-5 body-black">
+<h1>Add A Movie To Your <%= @list.name %> List </h1>
+<p>Which movie would you like to add?</p>
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.association :movie %>
+    <%= f.input :comment %>
+    <%= f.button :submit, class: 'shadow-sm btn btn-sm btn-secondary p-2' %>
+    <%= link_to 'Back To Your List', list_path(@list), class: 'btn btn-outline-success'  %><span class="sr-only">(Back To List)</span></a>
+
+  <% end %>
+</div>
 
 <% #raise %>

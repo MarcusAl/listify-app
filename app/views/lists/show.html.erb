@@ -1,29 +1,29 @@
 <%= render 'navbarPages' %>
 
 <div class="p-5 text-center text-white shadow-sm body-bg" id="bg-img">
-  <h1 class="display-4 mt-5"><%= @list.name %></h1>
+  <h1 class="display-4 mt-2"><%= @list.name %></h1>
   <p class="lead"><%= (@list.created_at).strftime("Created on %m/%d/%Y at %H:%M")%></p>
   <p class="lead">
     <%= link_to 'Add A Movie To Your List', new_list_bookmark_path(@list), class: 'btn btn-outline-success btn-lg mt-5'  %><span class="sr-only">(Create List)</span></a>
   </p>
 </div>
 
-<% #raise %>
-
-<div class="container mt-3">
-  <div class="row">
-  <% @list.bookmarks.each do |bookmark| %>
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%= bookmark.movie.title %></h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-      <div class="card-body">
-        <a href="#" class="card-link">Card link</a>
-        <%= link_to 'Delete Movie', bookmark_path(bookmark), method: :delete,  class: 'card-link' %>
+<div>
+  <div class="container pg-container p-1 mt-3 mb-3">
+  <h1 class="lead mt-4 bg-success p-3 shadow-sm w-50 rounded mx-auto text-center mb-5"><i class="fas mr-3 fa-arrow-down card-icon-sm"></i> Your List <i class="fas ml-3 fa-arrow-down card-icon-sm"></i></h1>
+    <div class="row d-flex justify-content-around">
+    <%= render 'cardCarousel', list: @list %>
+    </div>
+  </div>
+  <% unless @list.bookmarks[6].nil? %>
+    <div class="container-fluid p-4 mt-3 mb-1 body-black">
+      <div class="row d-flex justify-content-around">
+      <%= render 'cardCarouselTwo', list: @list %>
       </div>
     </div>
   <% end %>
-  </div>
+  <p class="lead w-50 mt-0 rounded mx-auto text-center mb-5">
+    <%= link_to 'Back To Your Lists', lists_path, class: 'btn btn-outline-success btn-lg mt-5'  %><span class="sr-only">(Create List)</span></a>
+  </p>
 </div>
+

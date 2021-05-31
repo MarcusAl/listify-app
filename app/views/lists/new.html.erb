@@ -1,9 +1,12 @@
 <%= render 'navbarPages' %>
 
-<div class="container mt-5">
-<h1 class="mb-5">HELLOOOOOOO There. Please enter your list details</h1>
-  <%= simple_form_for @list do |f| %>
-    <%= f.input :name, label: 'Your list name please', error: 'Name is mandatory, please specify one' %>
-    <%= f.button :submit, class: 'btn btn-outline-success btn-dark' %>
-  <% end %>
+<div class="pg-container container-fluid p-2 body-black">
+  <div class="container mt-5">
+  <h1 class="mb-5">Please enter your list details</h1>
+    <%= simple_form_for @list do |f| %>
+      <%= f.input :name, label: 'Your list name please', error: 'Name is mandatory, please specify one' %>
+      <%= f.button :submit, class: 'btn btn-outline-success btn-dark' %>
+    <% end %>
+  </div>
 </div>
+

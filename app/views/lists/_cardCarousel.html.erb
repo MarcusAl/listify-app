@@ -1,0 +1,45 @@
+<div id="carouselExampleIndicators" class="carousel slide container px-5" data-ride="carousel" style="width: 30rem;">
+  <div class="carousel-inner shadow-lg rounded">
+    <div class="carousel-item active">
+      <% if list.bookmarks[0] %>
+     <%= link_to image_tag(@list.bookmarks[0].movie.poster_url, class: "d-block w-100"), "https://www.youtube.com/results?search_query=#{@list.bookmarks[0].movie.title} movie", target: :_blank %>
+      <div class="carousel-caption d-md-block">
+        <div class="carousel-caption">
+          <div class="p-1 justify-content-center align-content-center">
+            <%= link_to bookmark_path(@list.bookmarks[0]), method: :delete, class: 'text-black' do %>
+            <i class="fas fa-trash-alt card-icon-sm text-white-50 mt-2"></i> <% end %>
+          </div>
+        </div>
+      </div>
+            <h5 class="text-center m-0 bg-clear p-2 small"><%= @list.bookmarks[0].movie.title %></h5>
+    </div>
+    <% end %>
+
+    <% if list.bookmarks[1..5] %>
+    <% @list.bookmarks[1..5].each do |bookmark| %>
+    <div class="carousel-item">
+     <%= link_to image_tag(bookmark.movie.poster_url, class: "d-block w-100"), "https://www.youtube.com/results?search_query=#{bookmark.movie.title} movie", target: :_blank %>
+      <div class="carousel-caption d-md-block">
+        <div class="carousel-caption">
+          <div class="p-1 justify-content-center align-content-center">
+            <%= link_to bookmark_path(bookmark), method: :delete, class: 'text-black' do %>
+            <i class="fas fa-trash-alt card-icon-sm text-white-50 mt-2"></i> <% end %>
+          </div>
+        </div>
+      </div>
+            <h5 class="text-center m-0 bg-clear p-2 small"><%= bookmark.movie.title %></h5>
+    </div>
+
+    <% end %>
+    <% end %>
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <i class="fas fa-arrow-circle-left next-icons mr-5"></i>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <i class="fas fa-arrow-circle-right next-icons ml-5"></i>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

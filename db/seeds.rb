@@ -7,27 +7,28 @@ require 'net/http'
 require 'json'
 
 puts 'Initialising..'
-Movie.destroy_all
+# Movie.destroy_all
 
 def rand_num
   rand(10..200).to_s
 end
 
-url = "https://api.themoviedb.org/3/movie/#{rand_num}?api_key=c2b3b6ff79a743ad0080710cde0a1fa5"
-uri = URI(url)
-response = Net::HTTP.get(uri)
-tester = JSON.parse(response)[:success]
-
 puts 'Adding Files to Database..'
 
-30.times do
-  # next if tester
-
-  title = JSON.parse(response)['title']
-  overview = JSON.parse(response)['overview']
-  poster = "https://image.tmdb.org/t/p/w500#{JSON.parse(response)['poster_path']}"
-  rating = JSON.parse(response)['popularity']
-  Movie.create(title: title, overview: overview, poster_url: poster, rating: rating)
+120.times do
+  url = "https://api.themoviedb.org/3/movie/#{rand_num}?api_key=c2b3b6ff79a743ad0080710cde0a1fa5"
+  uri = URI(url)
+  response = Net::HTTP.get(uri)
+  # rubocop:disable Style/Next
+  if JSON.parse(response)[:status_code].nil?
+    title = JSON.parse(response)['title']
+    overview = JSON.parse(response)['overview']
+    poster = "https://image.tmdb.org/t/p/w500#{JSON.parse(response)['poster_path']}"
+    rating = JSON.parse(response)['popularity']
+    Movie.create(title: title, overview: overview, poster_url: poster, rating: rating)
+  end
+  # rubocop:enable Style/Next
+  # pp JSON.parse(response)[:status_code]
 end
 
 puts 'Database Seed Complete!'

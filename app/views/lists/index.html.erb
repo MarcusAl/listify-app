@@ -1,33 +1,35 @@
 <%= render 'navbar' %>
 
-<div class="p-5 text-center text-white shadow-sm body-bg" id="bg-img">
-  <h1 class="display-4 mt-5">List Me</h1>
-  <p class="lead">Save any kind of movies to a list</p>
-  <p class="lead">
-    <%= link_to 'Create A Movie List', new_list_path, class: 'btn btn-outline-success btn-lg mt-5'  %><span class="sr-only">(Create List)</span></a>
-  </p>
-</div>
-
-<% if @lists %>
-<div class="container-fluid mt-5">
-  <div class="row w-100">
-    <ul class="row mx-auto justify-content-center">
-    <% @lists[0..7].each do |list| %>
-      <li style="list-style-type: none;" class="ml-2 col-3"> <%= link_to list.name, list_path(list), class: 'btn btn-secondary p-5 w-100 my-3 mx-4 shadow-lg border'  %> </li>
-    <% end %>
-    </ul>
+<div class="pg-container body-black">
+  <div class="p-5 text-center text-white shadow-sm body-bg" id="bg-img">
+    <h1 class="display-4 font-weight-bold my-5">Listify</h1>
+    <p class="lead">Create your <u><strong>perfect</strong></u> movie playlist</p>
+    <p class="lead">
+      <%= link_to 'Create A Movie List', new_list_path, class: 'btn btn-outline-success btn-lg mt-5'  %><span class="sr-only">(Create List)</span></a>
+    </p>
   </div>
-</div>
-<% end %>
 
-<% if @lists[7..] %>
-<div class="container-fluid border border-5 mt-5">
-  <div class="row align-items-center justify-content-center w-100">
-    <ul class="row mx-auto">
-    <% @lists[7..].each do |list| %>
-      <li style="list-style-type: none;" class="ml-4"> <%= link_to list.name, list_path(list), class: 'btn btn-secondary p-3 w-100 my-3 h-75 w-100'  %> </li>
-    <% end %>
-    </ul>
+  <% if @lists %>
+  <div class="container p-4 mt-5">
+    <div class="row w-100">
+      <ul class="row mx-auto">
+      <% @lists[0..7].each do |list| %>
+        <li style="list-style-type: none;" class="ml-2"> <%= link_to list.name, list_path(list), class: 'btn btn-secondary btn-outline-success p-5 w-100 my-3 mx-1 shadow-lg border'  %> </li>
+      <% end %>
+      </ul>
+    </div>
   </div>
+  <% end %>
+
+  <% if @lists[7..] %>
+  <div class="container-fluid border border-5 mt-5">
+    <div class="row align-items-center justify-content-center w-100">
+      <ul class="row mx-auto">
+      <% @lists[7..].each do |list| %>
+        <li style="list-style-type: none;" class="ml-4"> <%= link_to list.name, list_path(list), class: 'btn btn-secondary p-3 w-100 my-3 h-75 w-100'  %> </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+  <% end %>
 </div>
-<% end %>
