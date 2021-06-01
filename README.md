@@ -11,7 +11,7 @@
 [Live](https://rails-listify.herokuapp.com/lists)
 
 ### Screenshot
-[Screenshot](Screenshot 2021-06-01 at 10.16.35.png)
+<img align="center" alt="Screenshot" height="400px" src="Screenshot 2021-06-01 at 10.16.35.png"/>
 
 ## Built With
 
