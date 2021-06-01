@@ -29,6 +29,14 @@
 
 - GitHub: [@marcusal](https://github.com/marcusal)
 
+## Technical Description
+
+- This app uses rails as the main backbone, with PostGres storing the lists. The app features a collection of movies that the user can add to their lists.
+
+- The DB is seeded with 100 random movies from TMDB via their API. It uses the movie title, description and image url. The description will be implemented in a later version.
+
+- The UI was designed to make it simple for the user to scroll through their movies, and navigate around the website.
+
 ## Getting Started
 
 If you wish to set up the project yourself, ensure the assets folder is set in a location which is in the same folder as the other files. The Index and CSS should also be easily accessible. All the content in this project was linked to offline files in the assets folder.
