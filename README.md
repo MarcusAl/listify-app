@@ -3,7 +3,7 @@
 ![Followers](https://img.shields.io/github/followers/marcusal?style=for-the-badge)
 ![Stars](https://img.shields.io/github/stars/marcusal?style=for-the-badge)
 ![Pull Requests](https://img.shields.io/github/issues-pr/marcusal/listify-app?style=for-the-badge)
-![Last Commit](https://img.shields.io/github/last-commit/marcusal/listify-app/main?style=for-the-badge)
+![Last Commit](https://img.shields.io/github/last-commit/marcusal/listify-app?/main?style=for-the-badge)
 
 # Project 4 - Listify App
 
